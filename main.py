@@ -39,7 +39,8 @@ def cut_json(json, *fields):
 def cut_json_arr(arr, *fields):
     new_arr = []
     for json in arr:
-        new_arr.append(cut_json(json, fields=fields))
+        new_arr.append(cut_json(json, *fields))
     return new_arr
 
-pprint.pprint(cut_json_arr(none_sort['data'], 'view_count', 'display_name'))
+pprint.pprint(cut_json_arr(none_sort['data'], 'viewer_count', 'user_name'))
+pprint.pprint(cut_json(none_sort['data'][0], 'viewer_count', 'user_name'))
